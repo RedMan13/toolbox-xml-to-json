@@ -1,0 +1,23 @@
+{
+    "name": "toolbox-xml-to-json",
+    "version": "1.0.0",
+    "description": "converts blockly's xml toolbox to a json toolbox",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "keywords": [
+        "blockly",
+        "xml",
+        "json",
+        "toolbox"
+    ],
+    "author": "RedMan13",
+    "license": "ISC",
+    "dependencies": {
+      "@types/node": "^18.0.6",
+      "json-beautify": "^1.1.1",
+      "xml-js": "^1.6.11"
+    }
+}
+  
