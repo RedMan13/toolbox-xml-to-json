@@ -1,10 +1,10 @@
-# # # toolbox xml to json
+### toolbox xml to json
 
-# # description:
+## description:
 this is just a simple little script that converts blockly's xml toolbox to a json toolbox
 please submit an issue for sugestions/errors
 
-# # requirments:
+## requirments:
 # modules:
 `xml-js`
 `json-beautify`
@@ -12,7 +12,7 @@ please submit an issue for sugestions/errors
 node.js
 npm
 
-# # instructions:
+## instructions:
 run `npm i` then
 put the toolbox xml into `toolbox.xml` then 
 run `npm start`.
