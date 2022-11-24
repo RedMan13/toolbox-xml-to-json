@@ -15,7 +15,7 @@ const parseBlocks = (block, inside) => {
     switch (x.name) {
       case 'field': {
         if (!json.fields) json.fields = {}
-        json.fields[x.attributes.name] = x.elements[0].text
+        json.fields[x.attributes.name] = !x.elements ? '' : x.elements[0].text
         break
       }
       case 'value': {
