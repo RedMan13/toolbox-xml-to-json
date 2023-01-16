@@ -4,6 +4,7 @@ const beautify = require('json-beautify')
 
 // IMPORTANT: there has to be a file named cat.xml wich contains a valid xml in the exact same place as this
 
+let category = false
 const parseBlocks = (block, inside) => {
   let json = {
     type: block.attributes.type
@@ -34,6 +35,7 @@ const parseElms = (elements) => {
   elements.forEach((element) => {
     switch (element.name) {
       case 'category': {
+        category = true
         let out = {
           kind: 'category',
           name: element.attributes.name,
@@ -43,6 +45,7 @@ const parseElms = (elements) => {
           out.cssConfig = {}
           out.cssConfig.icon = element.attributes['css-icon']
         }
+        if (element.attributes.custom) out.costom = element.attributes.custom
         if (element.elements) {
           out.contents = parseElms(element.elements)
         }
@@ -93,7 +96,7 @@ fs.readFile('toolbox.xml', (err, file) => {
   let json = convert.xml2json(file, { compact: false, ignoreComment: true, spaces: 4 })
   json = JSON.parse(json)
   fs.writeFile('toolbox.json', Buffer.from(beautify({
-    "kind": "flyoutToolbox",
+    "kind": category ? "categoryToolbox" : "flyoutToolbox",
     "contents": parseElms(json.elements[0].elements)
   }, null, 4)), () => { })
 })
